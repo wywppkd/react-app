@@ -35,7 +35,7 @@
 
 - 常用数据类型: boolean, number, string, null, undefined, void, any, 联合类型, 数组
 
-```ts
+```TypeScript
 // 字符串类型
 let username: string = "lisa"; // 字符串类型
 username = 10; // 报错, 只能赋值字符串类型
@@ -71,7 +71,7 @@ const myAdd = (x: number, y: number): number => {
 
 ### 3.3. 类型推导
 
-```ts
+```TypeScript
 let username = "lisa"; // username 会被推导为 string
 username = "blue"; //ok
 username = 10; // 报错
@@ -79,9 +79,9 @@ username = 10; // 报错
 
 ### 3.4. type 类型别名
 
-- 作用: 同 interface, 定义对象类型, 定义
+- 作用: 同 interface, 常用与定义对象类型, 配合联合类型使用
 
-```ts
+```TypeScript
 // 给 string 类型起别名
 type MyString = string;
 let user: MyString = "hello";
@@ -109,7 +109,7 @@ let user: Props = {
 
 - 适用: 定义函数, 接口, Type别名, 类...
 
-```ts
+```TypeScript
 // T: 约束了 getValue 函数的入参value的数据类型, 出参的数据类型
 function getValue<T>(value: T): T {
   return value;
@@ -173,7 +173,7 @@ $ npx create-react-app react-app --template typescript
 
 ### 5.1. 类组件
 
-```ts
+```TypeScript
 import React from 'react';
 
 /**props类型 */
@@ -226,7 +226,7 @@ export default class Apple extends React.Component<AppleProps, AppleState> {
 
 - 不推荐使用 `React.FC` 的理由: https://fettblog.eu/typescript-react-why-i-dont-use-react-fc/
 
-```tsx
+```TypeScript
 import React from 'react';
 
 /**props类型 */
@@ -255,7 +255,7 @@ export default Apple;
 
 ### 5.3. React Hooks
 
-```tsx
+```TypeScript
 import React, { useRef, useState } from 'react';
 
 /**props类型 */
@@ -294,7 +294,7 @@ const Apple = (props: AppleProps) => {
 export default Apple;
 ```
 
-```tsx
+```TypeScript
 // 数据列表保存到 useState 中类型如何描述?
 // [
 //   {
@@ -359,7 +359,7 @@ export default Apple;
 
 ### 5.4. 发送请求
 
-```tsx
+```TypeScript
 // Apple.tsx
 import React from 'react';
 import { accountLogin, accountLogout } from '../services/user';
@@ -415,7 +415,7 @@ $ yarn add @types/lodash -D
 
   - 函数组件
 
-  ```tsx
+  ```TypeScript
   import React from 'react';
   import App from '../App';
 
@@ -434,7 +434,7 @@ $ yarn add @types/lodash -D
 
   - 类组件
 
-  ```tsx
+  ```TypeScript
   import React from 'react';
 
   type Props = {
