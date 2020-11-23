@@ -11,7 +11,7 @@
   - [5.1. 类组件](#51-类组件)
   - [5.2. 函数组件](#52-函数组件)
   - [5.3. React Hooks](#53-react-hooks)
-  - [5.4. 发送请求](#54-发送请求)
+  - [5.4. 定义&使用请求方法](#54-定义使用请求方法)
 - [6. 需要注意的地方](#6-需要注意的地方)
 - [7. 相关资源](#7-相关资源)
 
@@ -110,7 +110,12 @@ let user: Props = {
 - 适用: 定义函数, 接口, Type别名, 类...
 
 ```TypeScript
-// T: 约束了 getValue 函数的入参value的数据类型, 出参的数据类型
+// 定义普通函数, 缺点: 定义时已经限制了数据类型
+function getValue(value: string): string {
+  return value;
+}
+
+// 配合泛型定义函数, T 作为泛型参数, 在调用函数的时候指定具体类型
 function getValue<T>(value: T): T {
   return value;
 }
@@ -357,7 +362,7 @@ const Apple = () => {
 export default Apple;
 ```
 
-### 5.4. 发送请求
+### 5.4. 定义&使用请求方法
 
 ```TypeScript
 // Apple.tsx

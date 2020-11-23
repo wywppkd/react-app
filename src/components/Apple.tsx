@@ -1,33 +1,42 @@
 import React from 'react';
-import { accountLogin, accountLogout } from '../services/user';
-
-const Apple = () => {
-  /**登录 */
-  const handleLogin = async () => {
-    try {
-      const res = await accountLogin({ username: 'lisa', password: '123456' });
-      console.log('handleLogin -> res', res);
-    } catch (error) {
-      console.log('handleLogin -> error', error);
-    }
-  };
-
-  /**退出登录 */
-  const handleLogout = async () => {
-    try {
-      const res = await accountLogout();
-      console.log('handleLogout -> res', res);
-    } catch (error) {
-      console.log('handleLogout -> error', error);
-    }
-  };
-
-  return (
-    <div>
-      <button onClick={() => handleLogin()}>登录</button>
-      <button onClick={() => handleLogout()}>退出登录</button>
-    </div>
-  );
+/**props类型 */
+type AppleProps = {
+  /**展示信息 */
+  message: string;
 };
+/**state类型 */
+type AppleState = {
+  /**总数 */
+  count: number;
+};
+/**
+ * 类组件:
+ * 一般不需使用修饰符: private, protected, public, readonly, static
+ */
 
-export default Apple;
+/**Apple组件 */
+export default class Apple extends React.Component<AppleProps, AppleState> {
+  /**使用 ref */
+  refDiv = React.createRef<HTMLDivElement>();
+  /**初始化 state */
+  state: AppleState = {
+    count: 0,
+  };
+  /**绑定事件函数并传参 */
+  handleAdd(num: number) {
+    this.setState({
+      count: this.state.count + num,
+    });
+  }
+  render() {
+    return (
+      <div>
+        <div ref={this.refDiv}>
+          <p>props.message: {this.props.message}</p>
+          <p>state.count: {this.state.count}</p>
+        </div>
+        <button onClick={() => this.handleAdd(10)}>add</button>
+      </div>
+    );
+  }
+}

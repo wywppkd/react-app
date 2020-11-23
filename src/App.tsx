@@ -5,7 +5,7 @@ import Apple from './components/Apple';
 function App() {
   return (
     <div className="App">
-      <Apple />
+      <Apple message="lisa" />
     </div>
   );
 }
